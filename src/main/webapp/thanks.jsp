@@ -1,33 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="utf-8">
-    <title>Murach's Java Servlets and JSP</title>
+    <title>Thanks for Joining</title>
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>    
 </head>
 
 <body>
-    <h1>Thanks for joining our email list</h1>
+    <div class="thank-card">
+        <h1>Thanks for joining our email list!</h1>
+        <p class="lead">Here is the information you provided:</p>
 
-    <p>Here is the information that you entered:</p>
+        <div class="info-grid">
+            <label>Email:</label>
+            <span>${user.email}</span>
 
-    <label>Email:</label>
-    <span>${user.email}</span><br>
-    <label>First Name:</label>
-    <span>${user.firstName}</span><br>
-    <label>Last Name:</label>
-    <span>${user.lastName}</span><br>
+            <label>First Name:</label>
+            <span>${user.firstName}</span>
 
-    <p>To enter another email address, click on the Back 
-    button in your browser or the Return button shown 
-    below.</p>
+            <label>Last Name:</label>
+            <span>${user.lastName}</span>
+        </div>
 
-    <form action="" method="post">
-        <input type="hidden" name="action" value="join">
-        <input type="submit" value="Return">
-    </form>
+        <p class="small-note">
+            To enter another email address, click the button below.
+        </p>
 
-    <p><i>${errorMessage}</i></p>
-    
+        <form action="emailList" method="post" class="actions">
+            <input type="hidden" name="action" value="join">
+            <input type="submit" value="Return">
+        </form>
+
+        <p class="error-text"><i>${errorMessage}</i></p>
+    </div>
 </body>
 </html>
